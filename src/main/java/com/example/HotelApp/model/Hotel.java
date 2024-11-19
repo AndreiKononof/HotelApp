@@ -6,6 +6,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import java.time.Instant;
 
 @Entity
 @Table(name = "hotel")
@@ -16,14 +20,14 @@ import lombok.ToString;
 public class Hotel {
 
     @Id
-    @GeneratedValue( strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "name")
     private String name;
 
     @Column(name = "title")
-    private String title;
+    private String title = null;
 
     @Column(name = "town")
     private String town;
@@ -35,10 +39,18 @@ public class Hotel {
     private Double distanceToCenter;
 
     @Column(name = "rating")
-    private Double rating;
+    private Double rating = null;
 
     @Column(name = "count_ratings")
-    private Integer countRatings;
+    private Integer countRatings = null;
+
+    @CreationTimestamp
+    @Column(name = "create_time")
+    private Instant createTime;
+
+    @UpdateTimestamp
+    @Column(name = "update_time")
+    private Instant updateTime;
 
 
 }
