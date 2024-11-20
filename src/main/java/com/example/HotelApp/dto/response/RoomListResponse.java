@@ -8,7 +8,7 @@ import java.util.List;
 
 @Data
 @ToString
-public class HotelListResponse {
+public class RoomListResponse {
 
-    private List<HotelResponse> hotels = new ArrayList<>();
+    private List<RoomResponse> roomResponseList = new ArrayList<>();
 }

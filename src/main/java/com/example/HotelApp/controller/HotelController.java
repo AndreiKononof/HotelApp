@@ -36,7 +36,7 @@ public class HotelController {
     public ResponseEntity<HotelListResponse> getAll(@Valid PageInfo pageInfo) {
         log.info("Запрос: Список отелей");
         return ResponseEntity.status(HttpStatus.OK)
-                .body(hotelMapper.hotelListToListResponse(hotelService.findAll(pageInfo)));
+                .body(hotelMapper.hotelListToHotelListResponse(hotelService.findAll(pageInfo)));
     }
 
     @PostMapping

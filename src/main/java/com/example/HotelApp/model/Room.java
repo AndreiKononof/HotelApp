@@ -1,6 +1,5 @@
 package com.example.HotelApp.model;
 
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,15 +9,16 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "hotel")
+@Table(name = "room")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Hotel {
+public class Room {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,27 +27,24 @@ public class Hotel {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "title")
-    private String title = null;
+    @Column(name = "description")
+    private String description;
 
-    @Column(name = "town")
-    private String town;
+    @Column(name = "number")
+    private Integer number;
 
-    @Column(name = "address")
-    private String address;
+    @Column(name = "price")
+    private Double price;
 
-    @Column(name = "distance_center")
-    private Double distanceToCenter;
+    @Column(name = "max_count_people")
+    private Integer maxCountPeople;
 
-    @Column(name = "rating")
-    private Double rating = null;
+    @Column(name = "booking_now")
+    private List<Instant> bookedNow = new ArrayList<>();
 
-    @Column(name = "count_ratings")
-    private Integer countRatings = null;
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "hotel")
-    @ToString.Exclude
-    private List<Room> rooms;
+    @ManyToOne()
+    @JoinColumn(name = "hotel_id")
+    private Hotel hotel;
 
     @CreationTimestamp
     @Column(name = "create_time")
@@ -56,6 +53,5 @@ public class Hotel {
     @UpdateTimestamp
     @Column(name = "update_time")
     private Instant updateTime;
-
 
 }

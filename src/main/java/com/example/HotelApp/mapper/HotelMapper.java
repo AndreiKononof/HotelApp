@@ -24,12 +24,12 @@ public interface HotelMapper {
 
     HotelResponse hotelToHotelResponse(Hotel hotel);
 
-    List<HotelResponse> hotelListToHotelListResponse(List<Hotel> hotels);
+    List<HotelResponse> hotelListToListResponse(List<Hotel> hotels);
 
-    default HotelListResponse hotelListToListResponse(List<Hotel> hotels) {
-        HotelListResponse hotelListResponse = new HotelListResponse();
-        hotelListResponse.setHotels(hotelListToHotelListResponse(hotels));
-        return hotelListResponse;
+    default HotelListResponse hotelListToHotelListResponse(List<Hotel> hotels) {
+        HotelListResponse response = new HotelListResponse();
+        response.setHotels(hotelListToListResponse(hotels));
+        return response;
     }
 
 }

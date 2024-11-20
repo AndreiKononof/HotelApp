@@ -30,9 +30,9 @@ public class HotelServiceImpl implements HotelService {
 
     @Override
     public Hotel update(Hotel hotel) {
-        hotelRepository.save(hotel);
-        log.info("Обновлены данные отеля - {0}, ID - {1}", hotel.getName(), hotel.getId());
-        return hotel;
+        Hotel updateHotel = hotelRepository.save(hotel);
+        log.info("Обновлены данные отеля - {0}, ID - {1}", updateHotel.getName(), updateHotel.getId());
+        return updateHotel;
     }
 
     @Override
