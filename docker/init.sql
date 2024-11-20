@@ -27,3 +27,14 @@ CREATE TABLE IF EXISTS hotel_booking_schema.room
     create_time TIMESTAMP,
     update_time TIMESTAMP
 );
+
+CREATE table IF EXISTS hotel_booking_schema.user
+(
+    id BIGSERIAL PRIMARY KEY,
+    name VARCHAR(255) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    role ENUM NOT NULL,
+    create_time TIMESTAMP,
+    update_time TIMESTAMP
+):

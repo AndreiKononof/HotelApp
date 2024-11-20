@@ -33,7 +33,7 @@ public class RoomServiceImpl implements RoomService {
     @Override
     public Room update(Room room) {
         Room updateRoom = roomRepository.save(room);
-        log.info("обновлена комната name - {0}, ID -{1}, в отеле ID - {2}",
+        log.info("Обновлена комната name - {0}, ID -{1}, в отеле ID - {2}",
                 updateRoom.getName(), updateRoom.getId(), updateRoom.getHotel().getId());
         return updateRoom;
     }
@@ -44,7 +44,7 @@ public class RoomServiceImpl implements RoomService {
                 .findById(id)
                 .orElseThrow(()
                         -> new NotFoundException(MessageFormat.format("Комната с ID - {} не найдена", id)));
-
+        log.info("Найдена комната с ID - {}",id);
         return room;
     }
 
