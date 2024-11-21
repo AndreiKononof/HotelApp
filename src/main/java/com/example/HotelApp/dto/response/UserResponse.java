@@ -1,7 +1,7 @@
 package com.example.HotelApp.dto.response;
 
 
-import com.example.HotelApp.model.Role;
+import com.example.HotelApp.model.enums.Role;
 import lombok.Data;
 import lombok.ToString;
 

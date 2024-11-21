@@ -1,9 +1,7 @@
 package com.example.HotelApp.controller;
 
 import com.example.HotelApp.dto.request.RoomRequest;
-import com.example.HotelApp.dto.response.RoomListResponse;
 import com.example.HotelApp.dto.response.RoomResponse;
-import com.example.HotelApp.dto.response.pagination.PageInfo;
 import com.example.HotelApp.mapper.RoomMapper;
 import com.example.HotelApp.model.Room;
 import com.example.HotelApp.service.interfaces.RoomService;
@@ -11,11 +9,8 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequiredArgsConstructor

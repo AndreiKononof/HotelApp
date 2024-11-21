@@ -2,7 +2,7 @@ package com.example.HotelApp.mapper;
 
 
 import com.example.HotelApp.dto.request.RoomRequest;
-import com.example.HotelApp.dto.response.RoomListResponse;
+import com.example.HotelApp.dto.response.responseList.RoomListResponse;
 import com.example.HotelApp.dto.response.RoomResponse;
 import com.example.HotelApp.mapper.delegate.RoomDelegate;
 import com.example.HotelApp.model.Room;

@@ -9,6 +9,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.Instant;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,7 +41,7 @@ public class Room {
     private Integer maxCountPeople;
 
     @Column(name = "booking_now")
-    private List<Instant> bookedNow = new ArrayList<>();
+    private List<LocalDate> bookedNow = new ArrayList<>();
 
     @ManyToOne()
     @JoinColumn(name = "hotel_id")

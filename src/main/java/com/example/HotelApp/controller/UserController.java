@@ -1,7 +1,7 @@
 package com.example.HotelApp.controller;
 
 import com.example.HotelApp.dto.request.UserRequest;
-import com.example.HotelApp.dto.response.UserListResponse;
+import com.example.HotelApp.dto.response.responseList.UserListResponse;
 import com.example.HotelApp.dto.response.UserResponse;
 import com.example.HotelApp.mapper.UserMapper;
 import com.example.HotelApp.model.User;

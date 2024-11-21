@@ -1,5 +1,6 @@
-package com.example.HotelApp.dto.response;
+package com.example.HotelApp.dto.response.responseList;
 
+import com.example.HotelApp.dto.response.HotelResponse;
 import lombok.Data;
 import lombok.ToString;
 

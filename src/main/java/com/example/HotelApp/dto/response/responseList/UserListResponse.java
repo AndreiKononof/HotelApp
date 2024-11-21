@@ -1,5 +1,6 @@
-package com.example.HotelApp.dto.response;
+package com.example.HotelApp.dto.response.responseList;
 
+import com.example.HotelApp.dto.response.UserResponse;
 import lombok.Data;
 
 import java.util.ArrayList;

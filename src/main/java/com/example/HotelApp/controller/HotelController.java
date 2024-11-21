@@ -2,7 +2,7 @@ package com.example.HotelApp.controller;
 
 
 import com.example.HotelApp.dto.request.HotelRequest;
-import com.example.HotelApp.dto.response.HotelListResponse;
+import com.example.HotelApp.dto.response.responseList.HotelListResponse;
 import com.example.HotelApp.dto.response.HotelResponse;
 import com.example.HotelApp.dto.response.pagination.PageInfo;
 import com.example.HotelApp.mapper.HotelMapper;

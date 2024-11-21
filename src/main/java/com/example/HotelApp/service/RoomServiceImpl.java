@@ -57,6 +57,13 @@ public class RoomServiceImpl implements RoomService {
     }
 
     @Override
+    public List<Room> findAll(Long hotelId) {
+        List<Room> rooms = roomRepository.findAllWhereHotelId(hotelId);
+        log.info("Запрошен список комнат отеля ID {0} без пагинации", hotelId);
+        return rooms;
+    }
+
+    @Override
     public void delete(Long id) {
         roomRepository.deleteById(id);
         log.info("Удалена комната ID - {0}", id);

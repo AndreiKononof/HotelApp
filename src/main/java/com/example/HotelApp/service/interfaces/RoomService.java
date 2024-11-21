@@ -16,6 +16,8 @@ public interface RoomService {
 
     List<Room> findAll(Long hotelId, PageInfo pageInfo);
 
+    List<Room> findAll(Long hotelId);
+
     void delete(Long id);
 
 }

@@ -1,8 +1,10 @@
-package com.example.HotelApp.controller;
+package com.example.HotelApp.controller.util;
 
 
 import com.example.HotelApp.dto.exception.ErrorResponse;
+import com.example.HotelApp.exception.BookingDateException;
 import com.example.HotelApp.exception.NotFoundException;
+import com.example.HotelApp.exception.UserNameIsNotAvailableException;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.context.support.DefaultMessageSourceResolvable;
@@ -19,9 +21,23 @@ import java.util.List;
 @Slf4j
 public class ExceptionHandlerController {
 
-    @ExceptionHandler(NotFoundException.class)
+    @ExceptionHandler({NotFoundException.class})
     public ResponseEntity<ErrorResponse> notFound(NotFoundException ex) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
+                new ErrorResponse(ex.getMessage())
+        );
+    }
+
+    @ExceptionHandler(UserNameIsNotAvailableException.class)
+    public ResponseEntity<ErrorResponse> userException(UserNameIsNotAvailableException ex) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
+                new ErrorResponse(ex.getMessage())
+        );
+    }
+
+    @ExceptionHandler(BookingDateException.class)
+    public ResponseEntity<ErrorResponse> bookingDateException(BookingDateException ex) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
                 new ErrorResponse(ex.getMessage())
         );
     }

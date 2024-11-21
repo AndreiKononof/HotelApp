@@ -1,6 +1,5 @@
 package com.example.HotelApp.model;
 
-import com.example.HotelApp.model.enums.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,44 +8,41 @@ import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import java.time.Instant;
-import java.util.List;
 
+import java.time.Instant;
+import java.time.LocalDate;
+
+@Entity
+@Table(name = "booking")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class User {
+public class Booking {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "date_entry")
+    private LocalDate dateEntry;
 
-    @Column(name = "password")
-    private String password;
+    @Column(name = "date_exit")
+    private LocalDate dateExit;
 
-    @Column(name = "email")
-    private String email;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "room_id")
+    private Room room;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "role", columnDefinition = "ENUM")
-    private Role role;
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-    private List<Booking> bookings;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @CreationTimestamp
     @Column(name = "create_time")
-    @ToString.Include
     private Instant createTime;
 
     @UpdateTimestamp
     @Column(name = "update_time")
-    @ToString.Include
     private Instant updateTime;
-
-
 }

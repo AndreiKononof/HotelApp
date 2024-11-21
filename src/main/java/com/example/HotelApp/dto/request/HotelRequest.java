@@ -1,7 +1,7 @@
 package com.example.HotelApp.dto.request;
 
 
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
 import lombok.Data;
 import lombok.ToString;
@@ -10,16 +10,16 @@ import lombok.ToString;
 @ToString
 public class HotelRequest {
 
-    @NotNull(message = "Название отеля должно быть заполнено! (name = ?)")
+    @NotBlank(message = "Название отеля должно быть заполнено!")
     private String name;
 
-    @NotNull(message = "Город должен быть указан! (town = ?)")
+    @NotBlank(message = "Город должен быть указан!")
     private String town;
 
-    @NotNull(message = "Адрес отеля дожен быть заполнен! (address = ?)")
+    @NotBlank(message = "Адрес отеля дожен быть заполнен!")
     private String address;
 
-    @NotNull(message = "Растояние от центра города должно быть заполнено! (distanceToCenter = ?)")
+    @NotBlank(message = "Растояние от центра города должно быть заполнено!")
     @Positive(message = "Растояние от центра города должно быть больше 0!")
     private Double distanceToCenter;
 

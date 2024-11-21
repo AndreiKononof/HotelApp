@@ -28,7 +28,7 @@ CREATE TABLE IF EXISTS hotel_booking_schema.room
     update_time TIMESTAMP
 );
 
-CREATE table IF EXISTS hotel_booking_schema.user
+CREATE TABLE IF EXISTS hotel_booking_schema.user
 (
     id BIGSERIAL PRIMARY KEY,
     name VARCHAR(255) UNIQUE NOT NULL,
@@ -37,4 +37,18 @@ CREATE table IF EXISTS hotel_booking_schema.user
     role ENUM NOT NULL,
     create_time TIMESTAMP,
     update_time TIMESTAMP
-):
+);
+
+CREATE TABLE IF EXISTS hotel_booking_schema.booking
+(
+    id BIGSERIAL PRIMARY KEY,
+    date_entry TIMESTAMP NOT NULL,
+    date_entry TIMESTAMP NOT NULL,
+    room_id BIGINT REFERENCES hotel_booking_schema.room (id),
+    user_id BIGINT REFERENCES hotel_booking_schema.user (id),
+    create_time TIMESTAMP,
+    update_time TIMESTAMP
+
+);
+
+
